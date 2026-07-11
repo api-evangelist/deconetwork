@@ -1,0 +1,63 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: DecoNetwork
+providerId: deconetwork
+created: '2026-07-11'
+modified: '2026-07-11'
+reconciled: false
+tags:
+- Custom Apparel
+- Web to Print
+- Orders
+- Inventory
+- Rate Limiting
+- Pagination
+description: >-
+  DecoNetwork does not publish fixed numeric per-minute or per-account request
+  limits for its JSON API. The primary documented bound is result-set
+  pagination - search endpoints (orders, products, inventory, purchase orders)
+  return at most 100 results/rows per request, and callers page through larger
+  sets using an offset. API access itself is gated by the Enterprise
+  subscription rather than by a per-call quota, and requests are authenticated
+  on every call with username and password fields.
+notes: >-
+  No published throttling threshold or 429 policy was found in the developer
+  reference as of the review date. Treat the 100-result page size as the main
+  documented constraint and implement conservative backoff for large batch
+  synchronization jobs. Re-verify against DecoNetwork developer resources during
+  reconciliation.
+sources:
+- https://www.deconetwork.com/developer-resources/
+- https://developer.deconetwork.com/documents/api/json/order_management/api.html
+- https://developer.deconetwork.com/documents/api/json/product_management/api.html
+- https://developer.deconetwork.com/documents/api/json/inventory_management/api.html
+- https://developer.deconetwork.com/documents/api/json/purchase_order_management/api.html
+responseCodes:
+  throttled: not published
+limits:
+- name: Search Result Page Size
+  scope: request
+  metric: results
+  limit: 100 per request
+  notes: Order, product, inventory, and purchase order search endpoints return up to 100 results/rows per request; page with offset.
+- name: API Request Rate
+  scope: account
+  metric: requests
+  limit: not published
+  notes: No fixed numeric per-minute or per-account request-rate limit is documented.
+- name: Plan Gating
+  scope: account
+  metric: access
+  limit: Enterprise plan required
+  notes: API access is included only on the Enterprise subscription; other plans cannot call the API.
+policies:
+- name: Pagination
+  description: Use the offset parameter to page through result sets larger than 100 rows.
+- name: Backoff Strategy
+  description: No documented 429 policy; implement conservative client-side backoff and batching for large synchronization workloads.
+- name: Authentication Per Request
+  description: Every request must include username and password fields as query parameters or in the form-encoded body.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

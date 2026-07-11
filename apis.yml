@@ -1,0 +1,133 @@
+aid: deconetwork
+url: https://raw.githubusercontent.com/api-evangelist/deconetwork/refs/heads/main/apis.yml
+name: DecoNetwork
+kind: company
+description: >-
+  DecoNetwork is web-to-print and business-management software for custom
+  apparel decorators and print shops - screen printing, embroidery,
+  direct-to-garment, and promotional products - combining branded online
+  stores, quoting, order and artwork management, purchasing, inventory, and
+  production workflow in one platform. For Enterprise subscribers DecoNetwork
+  exposes a documented public JSON API over HTTPS to search and update orders,
+  manage products, manage inventory, and manage purchase orders, letting shops
+  integrate DecoNetwork with external carts, ERP/CRM systems, and custom
+  production automation. Each request is authenticated with account username
+  and password fields; the API is request/response REST returning JSON, and API
+  access is included only on the Enterprise plan.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Custom Apparel
+- Web to Print
+- Print Shop Management
+- Orders
+- Products
+- Inventory
+- Production Workflow
+- E-commerce
+created: '2026-07-11'
+modified: '2026-07-11'
+specificationVersion: '0.19'
+apis:
+- aid: deconetwork:deconetwork-order-management-api
+  name: DecoNetwork Order Management API
+  tags:
+  - Orders
+  - Fulfillment
+  - Production
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.deconetwork.com/documents/api/json/order_management/api.html
+  baseURL: https://www.deconetwork.com/api/json/manage_orders
+  properties:
+  - url: https://www.deconetwork.com/developer-resources/
+    type: Documentation
+  - url: https://developer.deconetwork.com/documents/api/json/order_management/api.html
+    type: APIReference
+  - url: openapi/deconetwork-openapi.yml
+    type: OpenAPI
+  description: >-
+    Search, analyze, and update orders in a DecoNetwork site. Find orders with
+    multi-condition filtering, sorting, and pagination (up to 100 results per
+    request), optionally including workflow, purchase order, shipment, and
+    production file data, and batch-update order or line-item status to Produced
+    or Shipped.
+- aid: deconetwork:deconetwork-product-management-api
+  name: DecoNetwork Product Management API
+  tags:
+  - Products
+  - Catalog
+  - Decoration
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.deconetwork.com/documents/api/json/product_management/api.html
+  baseURL: https://www.deconetwork.com/api/json/manage_products
+  properties:
+  - url: https://www.deconetwork.com/developer-resources/
+    type: Documentation
+  - url: https://developer.deconetwork.com/documents/api/json/product_management/api.html
+    type: APIReference
+  - url: openapi/deconetwork-openapi.yml
+    type: OpenAPI
+  description: >-
+    Build apps and integrations for managing DecoNetwork products. Search
+    products with multiple conditions joined by logical AND (up to 100 results
+    per request, with offset pagination and ISO-8601 UTC date filtering) and
+    retrieve one or more products by ID.
+- aid: deconetwork:deconetwork-inventory-management-api
+  name: DecoNetwork Inventory Management API
+  tags:
+  - Inventory
+  - Stock
+  - SKU
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.deconetwork.com/documents/api/json/inventory_management/api.html
+  baseURL: https://www.deconetwork.com/api/json/manage_inventory
+  properties:
+  - url: https://www.deconetwork.com/developer-resources/
+    type: Documentation
+  - url: https://developer.deconetwork.com/documents/api/json/inventory_management/api.html
+    type: APIReference
+  - url: openapi/deconetwork-openapi.yml
+    type: OpenAPI
+  description: >-
+    Manage DecoNetwork inventory across catalog and custom products. Search
+    SKU-based inventory with search conditions and pagination, and update
+    inventory levels and related settings for SKUs. Responses carry a
+    standardized response_status object with severity and status codes.
+- aid: deconetwork:deconetwork-purchase-order-management-api
+  name: DecoNetwork Purchase Order Management API
+  tags:
+  - Purchase Orders
+  - Purchasing
+  - Receiving
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.deconetwork.com/documents/api/json/purchase_order_management/api.html
+  baseURL: https://www.deconetwork.com/api/json/manage_purchase_orders
+  properties:
+  - url: https://www.deconetwork.com/developer-resources/
+    type: Documentation
+  - url: https://developer.deconetwork.com/documents/api/json/purchase_order_management/api.html
+    type: APIReference
+  - url: openapi/deconetwork-openapi.yml
+    type: OpenAPI
+  description: >-
+    Retrieve purchase orders by search parameters (up to 100 rows per request)
+    and record stock receipt against purchase orders and customer orders. Each
+    endpoint returns a consistent response_status object with a code, severity,
+    and description.
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/company/deconetwork
+- type: Website
+  url: https://www.deconetwork.com
+- type: Documentation
+  url: https://www.deconetwork.com/developer-resources/
+- type: SignUp
+  url: https://www.deconetwork.com/pricing/
+- type: Plans
+  url: plans/deconetwork-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/deconetwork-rate-limits.yml
+- type: FinOps
+  url: finops/deconetwork-finops.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

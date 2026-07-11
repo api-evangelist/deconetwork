@@ -1,0 +1,103 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: DecoNetwork
+providerId: deconetwork
+created: '2026-07-11'
+modified: '2026-07-11'
+reconciled: false
+tags:
+- Custom Apparel
+- Web to Print
+- Print Shop Management
+- SaaS
+- Plans
+description: >-
+  DecoNetwork is sold as a monthly SaaS subscription for apparel-decoration and
+  print-shop businesses, with a one-time license fee at signup. Published tiers
+  are Standard, Premium, and Enterprise. API access is included on the
+  Enterprise plan only - the API is not a separately metered product but a
+  capability unlocked by the Enterprise subscription, used to integrate
+  DecoNetwork orders, products, inventory, and purchase orders with external
+  systems. Prices below are the publicly listed monthly rates and one-time
+  license fees as of the created date and should be re-verified on the pricing
+  page during reconciliation.
+notes: >-
+  API access is gated to the Enterprise plan. There is no published per-call or
+  usage-based API fee; API usage is bounded by the account rather than metered
+  separately. Confirm current pricing and any regional variation on the
+  DecoNetwork pricing page.
+sources:
+- https://www.deconetwork.com/pricing/
+- https://help.deconetwork.com/hc/en-us/articles/360015719753-About-the-DecoNetwork-Plans
+- https://www.deconetwork.com/developer-resources/
+plans:
+- id: deconetwork-standard
+  name: Standard
+  type: paid
+  description: >-
+    Entry subscription for smaller decoration businesses. Does not include API
+    access.
+  entries:
+  - label: Monthly Subscription
+    name: standard_monthly
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: USD 199 per month (plus one-time USD 999 license fee)
+    userMultiplied: false
+  elements:
+  - name: Online Stores and Quoting
+  - name: Order and Artwork Management
+  - name: Production Workflow
+- id: deconetwork-premium
+  name: Premium
+  type: paid
+  description: >-
+    Mid-tier subscription with expanded capabilities. Does not include API
+    access.
+  entries:
+  - label: Monthly Subscription
+    name: premium_monthly
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: USD 299 per month (plus one-time USD 999 license fee)
+    userMultiplied: false
+  elements:
+  - name: Everything in Standard
+  - name: Advanced Reporting
+  - name: Additional Automations
+- id: deconetwork-enterprise
+  name: Enterprise
+  type: paid
+  description: >-
+    Top tier for high-volume and multi-location operations that need
+    enterprise-level automation, advanced reporting, and API access. This is the
+    only plan that includes access to the DecoNetwork JSON API for orders,
+    products, inventory, and purchase orders.
+  entries:
+  - label: Monthly Subscription
+    name: enterprise_monthly
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: USD 399 per month (plus one-time USD 2,999 license fee)
+    userMultiplied: false
+  elements:
+  - name: Everything in Premium
+  - name: API Access (Orders, Products, Inventory, Purchase Orders)
+  - name: Enterprise Automations
+  - name: Flexible Customization
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

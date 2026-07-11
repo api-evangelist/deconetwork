@@ -1,0 +1,89 @@
+aid: deconetwork
+name: DecoNetwork
+review:
+  question: Does DecoNetwork expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-11'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. DecoNetwork's documented public API is a
+    request/response JSON API over HTTPS - search and update operations for
+    orders, products, inventory, and purchase orders, authenticated per request
+    with username and password fields. There is no server-push transport
+    (WebSocket or SSE) on DecoNetwork's own API to model.
+findings:
+  summary: |
+    DecoNetwork does not publish a documented public WebSocket API. DecoNetwork
+    is web-to-print and business-management software for custom apparel
+    decorators and print shops. For Enterprise-plan subscribers it exposes a
+    documented public JSON API (developer.deconetwork.com) covering Order
+    Management, Product Management, Inventory Management, and Purchase Order
+    Management. Every endpoint is request/response REST over HTTPS: requests are
+    sent as query parameters or application/x-www-form-urlencoded (a couple of
+    POST bodies are JSON) and all responses are JSON carrying a response_status
+    object. Authentication is username and password fields passed on each
+    request. No realtime, bidirectional, or streaming WebSocket (ws:// or
+    wss://) endpoint is documented anywhere in DecoNetwork's developer resources.
+  accessModel: |
+    The API is real and publicly documented but plan-gated: API access is
+    included only on the Enterprise subscription (published at USD 399/month
+    plus a one-time license fee). Standard and Premium plans do not include API
+    access. Because each merchant runs on their own DecoNetwork site, the
+    developer reference documents the host as www.deconetwork.com and callers
+    substitute their own site domain.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://www.deconetwork.com/api/json
+      documented: true
+      note: JSON API for orders, products, inventory, and purchase orders. Form-encoded or query-parameter requests; JSON responses.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented anywhere in DecoNetwork's developer resources as of the review date.
+  endpointsConfirmedRest:
+    - GET  https://www.deconetwork.com/api/json/manage_orders/find
+    - POST https://www.deconetwork.com/api/json/manage_orders/update_order_status
+    - POST https://www.deconetwork.com/api/json/manage_products/find
+    - GET  https://www.deconetwork.com/api/json/manage_products/get
+    - GET  https://www.deconetwork.com/api/json/manage_inventory/find
+    - POST https://www.deconetwork.com/api/json/manage_inventory/update
+    - GET  https://www.deconetwork.com/api/json/manage_purchase_orders/find
+    - POST https://www.deconetwork.com/api/json/manage_purchase_orders/receive_stock
+  endpointsModeled: |
+    None of the eight endpoints above are fabricated - each is transcribed from
+    DecoNetwork's published developer reference. DecoNetwork also references an
+    Inventory Events Management API in its developer resources, but exact
+    endpoint paths for it were not resolvable at review time, so it was
+    deliberately omitted rather than modeled. No endpoints were invented.
+sources:
+  - url: https://www.deconetwork.com/developer-resources/
+    type: Documentation
+    note: Developer resources hub listing the JSON APIs; API access is an Enterprise-plan feature.
+  - url: https://developer.deconetwork.com/documents/api/json/order_management/api.html
+    type: APIReference
+    note: Order Management API - find and update_order_status; username/password auth; JSON responses.
+  - url: https://developer.deconetwork.com/documents/api/json/product_management/api.html
+    type: APIReference
+    note: Product Management API - find and get products; up to 100 results; offset pagination.
+  - url: https://developer.deconetwork.com/documents/api/json/inventory_management/api.html
+    type: APIReference
+    note: Inventory Management API (Beta) - find and update SKU-based inventory.
+  - url: https://developer.deconetwork.com/documents/api/json/purchase_order_management/api.html
+    type: APIReference
+    note: Purchase Order Management API - find purchase orders and receive_stock.
+  - url: https://www.deconetwork.com/pricing/
+    type: Pricing
+    note: Standard/Premium/Enterprise subscription tiers; API access on Enterprise only.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists. DecoNetwork's own public API is
+    request/response JSON over HTTPS, so no AsyncAPI document was created. The
+    apis.yml catalogs the four documented JSON APIs with their real endpoints
+    captured in a single OpenAPI document.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,0 +1,82 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: DecoNetwork
+providerId: deconetwork
+created: '2026-07-11'
+modified: '2026-07-11'
+reconciled: false
+tags:
+- Custom Apparel
+- Web to Print
+- Print Shop Management
+- SaaS
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of DecoNetwork spend. DecoNetwork is a fixed monthly SaaS
+  subscription with a one-time license fee at signup, not a usage-metered API.
+  The dominant, predictable cost is the plan subscription (Standard, Premium, or
+  Enterprise). API access is a capability bundled into the Enterprise plan
+  rather than a separately billed line item, so there is no per-call API charge
+  to allocate - the relevant FinOps decision is whether the workflow automation
+  and integrations enabled by the API justify the step up to the Enterprise
+  tier.
+notes: >-
+  API usage carries no incremental metered fee; the cost driver is the
+  Enterprise subscription plus the one-time license fee. Verify current rates on
+  the DecoNetwork pricing page. Secondary internal costs are the engineering
+  effort to build and maintain integrations against the JSON API.
+sources:
+- https://www.deconetwork.com/pricing/
+- https://www.deconetwork.com/developer-resources/
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: DecoNetwork
+serviceCategory: Business Management Software
+billingModel:
+  pricingCategory: Subscription
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+  - Purchase
+  - Usage
+meters:
+- name: plan_subscription
+  description: Fixed monthly DecoNetwork plan subscription (Standard, Premium, or Enterprise).
+  unit: months
+  aggregation: sum
+  dimensions:
+  - account
+  - plan
+- name: license_fee
+  description: One-time license fee charged at signup, varying by plan.
+  unit: fee
+  aggregation: sum
+  dimensions:
+  - account
+  - plan
+- name: integration_engineering
+  description: Internal engineering effort to build and maintain integrations against the DecoNetwork JSON API (no vendor invoice).
+  unit: hours
+  aggregation: sum
+  dimensions:
+  - team
+principles:
+- name: Visibility
+  description: Track the monthly plan subscription and the one-time license fee as the primary DecoNetwork costs; API access adds no metered charge.
+- name: Allocation
+  description: Attribute the Enterprise subscription to the operations/fulfillment function that depends on API-driven automation.
+- name: Optimization
+  description: Only step up to the Enterprise tier when integration and automation value (ERP/CRM sync, custom production workflows) exceeds the incremental subscription cost.
+- name: Accountability
+  description: Assign an owner for the DecoNetwork subscription and for each integration built on the JSON API.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
