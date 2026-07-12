@@ -1,0 +1,18 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/deconetwork-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - query
+schemes:
+- name: credentials
+  type: apiKey
+  in: query
+  parameter: username
+  description: DecoNetwork authenticates each request with username and password fields passed
+    as query parameters (GET/POST) or in the form-encoded body. Both fields are required on
+    every request.
+  sources:
+  - openapi/deconetwork-openapi.yml

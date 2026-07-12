@@ -114,6 +114,10 @@ apis:
     endpoint returns a consistent response_status object with a code, severity,
     and description.
 common:
+- type: DomainSecurity
+  url: security/deconetwork-domain-security.yml
+- type: Authentication
+  url: authentication/deconetwork-authentication.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/deconetwork
 - type: Website

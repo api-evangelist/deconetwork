@@ -1,0 +1,20 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.deconetwork.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 11 08:41:42 2026 GMT
+  hsts: null
+- host: developer.deconetwork.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 25 23:50:28 2026 GMT
+  hsts: false
+domains:
+- domain: deconetwork.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: false
