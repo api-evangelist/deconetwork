@@ -114,6 +114,8 @@ apis:
     endpoint returns a consistent response_status object with a code, severity,
     and description.
 common:
+- type: AgenticAccess
+  url: agentic-access/deconetwork-agentic-access.yml
 - type: DomainSecurity
   url: security/deconetwork-domain-security.yml
 - type: Authentication
