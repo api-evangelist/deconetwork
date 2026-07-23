@@ -1,0 +1,100 @@
+openapi: 3.0.3
+info:
+  title: DecoNetwork JSON Inventory API
+  version: '1.0'
+  description: 'Public JSON API for DecoNetwork, the web-to-print and business-management platform for custom apparel decorators and print shops. The API lets Enterprise-plan sites search and update orders, manage products, manage inventory, and manage purchase orders, for integration with external carts, ERP/CRM systems, and production automation.
+
+
+    Endpoints and paths in this document are transcribed from DecoNetwork''s published developer reference at developer.deconetwork.com. Requests are authenticated with account username and password fields passed either as query parameters (GET/POST) or in the application/x-www-form-urlencoded body. Requests are form-encoded (some POST bodies are JSON) and all responses are JSON carrying a response_status object with a code, severity (SUCCESS or ERROR), and description. API access is included on the Enterprise plan only.'
+  contact:
+    name: DecoNetwork Developer Resources
+    url: https://www.deconetwork.com/developer-resources/
+servers:
+- url: https://www.deconetwork.com
+  description: DecoNetwork API host. In practice each merchant operates on their own DecoNetwork site domain; substitute your site host as documented.
+security:
+- credentials: []
+tags:
+- name: Inventory
+paths:
+  /api/json/manage_inventory/find:
+    get:
+      operationId: findInventory
+      summary: Search inventory
+      description: Search SKU-based inventory across catalog and custom products using search conditions, with pagination. Returns up to 100 rows per request.
+      tags:
+      - Inventory
+      parameters:
+      - name: username
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: password
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: JSON inventory list with a response_status object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+  /api/json/manage_inventory/update:
+    post:
+      operationId: updateInventory
+      summary: Update inventory
+      description: Update inventory levels and related settings for SKUs.
+      tags:
+      - Inventory
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - username
+              - password
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: JSON result with a response_status object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+components:
+  schemas:
+    ResponseStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          description: Status code (10001 indicates SUCCESS; 30001+ indicate ERROR/WARNING).
+        severity:
+          type: string
+          enum:
+          - SUCCESS
+          - ERROR
+        description:
+          type: string
+          description: Human-readable detail, present on errors.
+    ApiResponse:
+      type: object
+      description: Standard DecoNetwork JSON envelope.
+      properties:
+        response_status:
+          $ref: '#/components/schemas/ResponseStatus'
+  securitySchemes:
+    credentials:
+      type: apiKey
+      in: query
+      name: username
+      description: DecoNetwork authenticates each request with username and password fields passed as query parameters (GET/POST) or in the form-encoded body. Both fields are required on every request.
