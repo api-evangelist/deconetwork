@@ -1,0 +1,20 @@
+{
+  "provider": "deconetwork",
+  "sources": [
+    "deconetwork-inventory-api-openapi.yml",
+    "deconetwork-orders-api-openapi.yml",
+    "deconetwork-products-api-openapi.yml",
+    "deconetwork-purchase-orders-api-openapi.yml"
+  ],
+  "outputs": [
+    "deconetwork-inventory-api-openapi.yml",
+    "deconetwork-orders-api-openapi.yml",
+    "deconetwork-products-api-openapi.yml",
+    "deconetwork-purchase-orders-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
