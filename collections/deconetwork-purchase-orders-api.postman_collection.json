@@ -1,0 +1,253 @@
+{
+  "item": [
+    {
+      "id": "8970660b-7fc6-4f66-ae2a-3efc8543c90b",
+      "name": "Purchase Orders",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "41021016-046c-4625-872d-61ab7688d2d6",
+          "name": "Search purchase orders",
+          "request": {
+            "name": "Search purchase orders",
+            "description": {
+              "content": "Retrieve a list of purchase orders based on search parameters. Returns up to 100 rows per request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "json",
+                "manage_purchase_orders",
+                "find"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "username",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "password",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d54cffa0-d067-408f-be8e-f24d2ca1e995",
+              "name": "JSON list of purchase orders with a response_status object.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "json",
+                    "manage_purchase_orders",
+                    "find"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "password",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "username",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response_status\": {\n    \"code\": 1385,\n    \"severity\": \"SUCCESS\",\n    \"description\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d9b29d9-0452-43ff-9a68-f86069f7c776",
+          "name": "Receive stock",
+          "request": {
+            "name": "Receive stock",
+            "description": {
+              "content": "Record stock receipt against purchase orders and customer orders.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "json",
+                "manage_purchase_orders",
+                "receive_stock"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c69bd927-28ec-4643-87c0-a1375859fcb6",
+              "name": "JSON result with a response_status object.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "json",
+                    "manage_purchase_orders",
+                    "receive_stock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "username",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response_status\": {\n    \"code\": 1385,\n    \"severity\": \"SUCCESS\",\n    \"description\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.deconetwork.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "username"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "95f94b8a-f781-4da9-817d-5f42ecf1e74a",
+    "name": "DecoNetwork JSON Inventory Purchase Orders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public JSON API for DecoNetwork, the web-to-print and business-management platform for custom apparel decorators and print shops. The API lets Enterprise-plan sites search and update orders, manage products, manage inventory, and manage purchase orders, for integration with external carts, ERP/CRM systems, and production automation.\n\nEndpoints and paths in this document are transcribed from DecoNetwork's published developer reference at developer.deconetwork.com. Requests are authenticated with account username and password fields passed either as query parameters (GET/POST) or in the application/x-www-form-urlencoded body. Requests are form-encoded (some POST bodies are JSON) and all responses are JSON carrying a response_status object with a code, severity (SUCCESS or ERROR), and description. API access is included on the Enterprise plan only.\n\nContact Support:\n Name: DecoNetwork Developer Resources",
+      "type": "text/plain"
+    }
+  }
+}

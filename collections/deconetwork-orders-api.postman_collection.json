@@ -1,0 +1,275 @@
+{
+  "item": [
+    {
+      "id": "383e9aea-4cb1-4a95-8d32-a968909991c5",
+      "name": "Orders",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b4561e47-2ee1-42b2-9fc3-419f6ecb1add",
+          "name": "Search orders",
+          "request": {
+            "name": "Search orders",
+            "description": {
+              "content": "Search orders with multi-condition filtering (logical AND), sorting, and pagination. Returns up to 100 results per request. Workflow, purchase order, shipment, and production file data can optionally be included.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "json",
+                "manage_orders",
+                "find"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "username",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "password",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1235f6ac-e82d-42b4-87d2-2408dc0731c1",
+              "name": "JSON list of matching orders with a response_status object.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "json",
+                    "manage_orders",
+                    "find"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "password",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "username",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response_status\": {\n    \"code\": 1405,\n    \"severity\": \"ERROR\",\n    \"description\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "15b90cc7-f590-4ed5-b07c-78ed62c4fe2d",
+          "name": "Update order status",
+          "request": {
+            "name": "Update order status",
+            "description": {
+              "content": "Update order or line-item status to Produced or Shipped. Supports batch updates using the indexed parameter format changes[n][parameter_name].",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "json",
+                "manage_orders",
+                "update_order_status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "username",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "password",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "70daaf72-cd11-475c-a73d-b5c2aafdfbc6",
+              "name": "JSON result with a response_status object.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "json",
+                    "manage_orders",
+                    "update_order_status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "username",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "password",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response_status\": {\n    \"code\": 1405,\n    \"severity\": \"ERROR\",\n    \"description\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.deconetwork.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "username"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "babd180f-4216-47cc-856f-bb43efcba5ac",
+    "name": "DecoNetwork JSON Inventory Orders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public JSON API for DecoNetwork, the web-to-print and business-management platform for custom apparel decorators and print shops. The API lets Enterprise-plan sites search and update orders, manage products, manage inventory, and manage purchase orders, for integration with external carts, ERP/CRM systems, and production automation.\n\nEndpoints and paths in this document are transcribed from DecoNetwork's published developer reference at developer.deconetwork.com. Requests are authenticated with account username and password fields passed either as query parameters (GET/POST) or in the application/x-www-form-urlencoded body. Requests are form-encoded (some POST bodies are JSON) and all responses are JSON carrying a response_status object with a code, severity (SUCCESS or ERROR), and description. API access is included on the Enterprise plan only.\n\nContact Support:\n Name: DecoNetwork Developer Resources",
+      "type": "text/plain"
+    }
+  }
+}

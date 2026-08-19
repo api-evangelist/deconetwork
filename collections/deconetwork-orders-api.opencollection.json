@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DecoNetwork JSON Inventory Orders API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "username",
+      "value": "{{username}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.deconetwork.com/api/json/manage_orders/find",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "password",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Search orders with multi-condition filtering (logical AND), sorting, and pagination. Returns up to 100 results per request. Workflow, purchase order, shipment, and production file data can optionally be included."
+        },
+        {
+          "info": {
+            "name": "Update order status",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.deconetwork.com/api/json/manage_orders/update_order_status",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "username",
+                  "value": ""
+                },
+                {
+                  "name": "password",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Update order or line-item status to Produced or Shipped. Supports batch updates using the indexed parameter format changes[n][parameter_name]."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

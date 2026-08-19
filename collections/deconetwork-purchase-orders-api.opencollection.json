@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DecoNetwork JSON Inventory Purchase Orders API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "username",
+      "value": "{{username}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Purchase Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search purchase orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.deconetwork.com/api/json/manage_purchase_orders/find",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "password",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of purchase orders based on search parameters. Returns up to 100 rows per request."
+        },
+        {
+          "info": {
+            "name": "Receive stock",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.deconetwork.com/api/json/manage_purchase_orders/receive_stock",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Record stock receipt against purchase orders and customer orders."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

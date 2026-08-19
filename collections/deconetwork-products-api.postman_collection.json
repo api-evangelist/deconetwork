@@ -1,0 +1,275 @@
+{
+  "item": [
+    {
+      "id": "87886fc8-dfcd-47eb-aa56-cf4863575145",
+      "name": "Products",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "56072baf-0581-46af-85a7-e3c63b132b0b",
+          "name": "Search products",
+          "request": {
+            "name": "Search products",
+            "description": {
+              "content": "Search products based on multiple conditions joined with logical AND. Returns up to 100 results per request with offset pagination and ISO-8601 UTC date filtering.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "json",
+                "manage_products",
+                "find"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "username",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "password",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "667233c1-ef43-45f8-929f-c514ae0e3e3d",
+              "name": "JSON list of matching products with a response_status object.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "json",
+                    "manage_products",
+                    "find"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "username",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "password",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response_status\": {\n    \"code\": 269,\n    \"severity\": \"ERROR\",\n    \"description\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d621f72b-a3df-422a-8c97-7b0ca9496257",
+          "name": "Get products by ID",
+          "request": {
+            "name": "Get products by ID",
+            "description": {
+              "content": "Retrieve a single product or multiple products by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "json",
+                "manage_products",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "username",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "password",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4c547736-2513-4fc6-967c-a07e1b904273",
+              "name": "JSON product(s) with a response_status object.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "json",
+                    "manage_products",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "password",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "username",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response_status\": {\n    \"code\": 269,\n    \"severity\": \"ERROR\",\n    \"description\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.deconetwork.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "username"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "77676c6f-3a82-479b-94a3-678da2b58988",
+    "name": "DecoNetwork JSON Inventory Products API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public JSON API for DecoNetwork, the web-to-print and business-management platform for custom apparel decorators and print shops. The API lets Enterprise-plan sites search and update orders, manage products, manage inventory, and manage purchase orders, for integration with external carts, ERP/CRM systems, and production automation.\n\nEndpoints and paths in this document are transcribed from DecoNetwork's published developer reference at developer.deconetwork.com. Requests are authenticated with account username and password fields passed either as query parameters (GET/POST) or in the application/x-www-form-urlencoded body. Requests are form-encoded (some POST bodies are JSON) and all responses are JSON carrying a response_status object with a code, severity (SUCCESS or ERROR), and description. API access is included on the Enterprise plan only.\n\nContact Support:\n Name: DecoNetwork Developer Resources",
+      "type": "text/plain"
+    }
+  }
+}

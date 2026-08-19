@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DecoNetwork JSON Inventory API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "username",
+      "value": "{{username}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Inventory",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search inventory",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.deconetwork.com/api/json/manage_inventory/find",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "password",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Search SKU-based inventory across catalog and custom products using search conditions, with pagination. Returns up to 100 rows per request."
+        },
+        {
+          "info": {
+            "name": "Update inventory",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.deconetwork.com/api/json/manage_inventory/update",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "username",
+                  "value": ""
+                },
+                {
+                  "name": "password",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Update inventory levels and related settings for SKUs."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
