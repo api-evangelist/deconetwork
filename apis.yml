@@ -30,6 +30,15 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/deconetwork.png
 tags:
 - Custom Apparel
+- Web-to-Print
+- Print Shop Management
+- Order
+- Product
+- Inventory
+- Production Workflow
+- E-Commerce
+tags_raw:
+- Custom Apparel
 - Web to Print
 - Print Shop Management
 - Orders
@@ -67,6 +76,8 @@ apis:
   humanURL: https://developer.deconetwork.com/documents/api/json/order_management/api.html
   baseURL: https://www.deconetwork.com/api/json/manage_orders
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
@@ -87,6 +98,8 @@ apis:
   humanURL: https://developer.deconetwork.com/documents/api/json/order_management/api.html
   baseURL: https://www.deconetwork.com/api/json/manage_orders
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI
