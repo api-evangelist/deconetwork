@@ -14,6 +14,18 @@ description: >-
   production automation. Each request is authenticated with account username
   and password fields; the API is request/response REST returning JSON, and API
   access is included only on the Enterprise plan.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: self-serve
