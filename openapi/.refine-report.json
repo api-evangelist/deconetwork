@@ -1,10 +1,7 @@
 {
   "provider": "deconetwork",
   "sources": [
-    "deconetwork-inventory-api-openapi.yml",
-    "deconetwork-orders-api-openapi.yml",
-    "deconetwork-products-api-openapi.yml",
-    "deconetwork-purchase-orders-api-openapi.yml"
+    "_original/deconetwork-openapi.yml"
   ],
   "outputs": [
     "deconetwork-inventory-api-openapi.yml",
@@ -15,6 +12,19 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "deconetwork-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "deconetwork-openapi.yml: declared missing tag: Inventory",
+    "deconetwork-openapi.yml: declared missing tag: Orders",
+    "deconetwork-openapi.yml: declared missing tag: Products",
+    "deconetwork-openapi.yml: declared missing tag: Purchase Orders",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "deconetwork-inventory-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "deconetwork-orders-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "deconetwork-products-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "deconetwork-purchase-orders-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

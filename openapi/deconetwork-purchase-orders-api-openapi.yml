@@ -1,11 +1,8 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: DecoNetwork JSON Inventory Purchase Orders API
+  title: DecoNetwork JSON Purchase Orders API
   version: '1.0'
-  description: 'Public JSON API for DecoNetwork, the web-to-print and business-management platform for custom apparel decorators and print shops. The API lets Enterprise-plan sites search and update orders, manage products, manage inventory, and manage purchase orders, for integration with external carts, ERP/CRM systems, and production automation.
-
-
-    Endpoints and paths in this document are transcribed from DecoNetwork''s published developer reference at developer.deconetwork.com. Requests are authenticated with account username and password fields passed either as query parameters (GET/POST) or in the application/x-www-form-urlencoded body. Requests are form-encoded (some POST bodies are JSON) and all responses are JSON carrying a response_status object with a code, severity (SUCCESS or ERROR), and description. API access is included on the Enterprise plan only.'
+  description: Public JSON API for DecoNetwork, the web-to-print and business-management platform for custom apparel decorators and print shops.
   contact:
     name: DecoNetwork Developer Resources
     url: https://www.deconetwork.com/developer-resources/
