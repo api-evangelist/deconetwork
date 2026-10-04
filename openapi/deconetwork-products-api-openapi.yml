@@ -69,12 +69,6 @@ paths:
                 $ref: '#/components/schemas/ApiResponse'
 components:
   schemas:
-    ApiResponse:
-      type: object
-      description: Standard DecoNetwork JSON envelope.
-      properties:
-        response_status:
-          $ref: '#/components/schemas/ResponseStatus'
     ResponseStatus:
       type: object
       properties:
@@ -89,6 +83,12 @@ components:
         description:
           type: string
           description: Human-readable detail, present on errors.
+    ApiResponse:
+      type: object
+      description: Standard DecoNetwork JSON envelope.
+      properties:
+        response_status:
+          $ref: '#/components/schemas/ResponseStatus'
   securitySchemes:
     credentials:
       type: apiKey
