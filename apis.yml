@@ -147,6 +147,9 @@ apis:
   - type: APIReference
     url: https://developer.deconetwork.com/documents/api/json/purchase_order_management/api.html
 common:
+- type: CapabilityMap
+  url: capabilities/deconetwork-capability-edges.yml
+  name: DecoNetwork Business Capability Map
 - type: AgenticAccess
   url: agentic-access/deconetwork-agentic-access.yml
 - type: DomainSecurity

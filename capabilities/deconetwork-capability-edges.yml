@@ -1,0 +1,35 @@
+slug: deconetwork
+provider: DecoNetwork
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Inventory
+  spec_file: deconetwork-inventory-api-openapi.yml
+  capability_id: BC-530
+  capability_id_l1: BC-530
+  capability_name: Inventory Management
+  confidence: 0.8
+  evidence: '''GET /api/json/manage_inventory/find  Search inventory'', ''POST /api/json/manage_inventory/update  Update
+    inventory'''
+  reason: Direct search and update of stock inventory in a print-shop business management platform realises
+    Inventory Management. Operations are too generic to pin a sub-capability.
+- tag: Purchase Orders
+  spec_file: deconetwork-purchase-orders-api-openapi.yml
+  capability_id: BC-500.30
+  capability_id_l1: BC-500
+  capability_name: Purchase Order Management
+  confidence: 0.8
+  evidence: '''Search purchase orders'', ''POST /api/json/manage_purchase_orders/receive_stock  Receive
+    stock'''
+  reason: Purchase order retrieval plus goods receipt is squarely purchase order / procure-to-pay execution;
+    PO Management chosen as the primary sub-capability.
