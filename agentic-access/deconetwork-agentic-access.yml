@@ -1,20 +1,47 @@
-generated: '2026-07-15'
+generated: '2026-09-23'
 method: generated
-source: openapi/deconetwork-openapi.yml
+source: openapi/deconetwork-inventory-api-openapi.yml, openapi/deconetwork-orders-api-openapi.yml,
+  openapi/deconetwork-products-api-openapi.yml, openapi/deconetwork-purchase-orders-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
 summary:
   operations: 8
   by_action_class:
-    connected: 4
-    acting: 4
+    connected: 5
+    acting: 3
   by_consequence:
-    read: 4
+    read: 5
+    write: 1
     physical: 2
-    write: 2
   human_in_the_loop_required: 0
 operations:
+- path: /api/json/manage_inventory/find
+  method: get
+  operationId: findInventory
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/json/manage_inventory/update
+  method: post
+  operationId: updateInventory
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
 - path: /api/json/manage_orders/find
   method: get
   operationId: findOrders
@@ -47,18 +74,12 @@ operations:
   method: post
   operationId: findProducts
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /api/json/manage_products/get
   method: get
   operationId: getProducts
@@ -69,32 +90,6 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /api/json/manage_inventory/find
-  method: get
-  operationId: findInventory
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/json/manage_inventory/update
-  method: post
-  operationId: updateInventory
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
 - path: /api/json/manage_purchase_orders/find
   method: get
   operationId: findPurchaseOrders
