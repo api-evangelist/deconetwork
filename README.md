@@ -1,4 +1,4 @@
-# DecoNetwork (deconetwork)
+# DecoNetwork
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,83 +64,122 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-DecoNetwork is web-to-print and business-management software for custom apparel decorators and print shops - screen printing, embroidery, direct-to-garment, and promotional products. It combines branded online stores, quoting, order and artwork management, purchasing, inventory, and production workflow in a single platform, with a global team across the US, UK, and Australia.
+DecoNetwork is web-to-print and business-management software for custom apparel decorators and print shops - screen printing, embroidery, direct-to-garment, and promotional products - combining branded online stores, quoting, order and artwork management, purchasing, inventory, and production workflow in one platform. For Enterprise subscribers DecoNetwork exposes a documented public JSON API over HTTPS to search and update orders, manage products, manage inventory, and manage purchase orders, letting shops integrate DecoNetwork with external carts, ERP/CRM systems, and custom production automation. Each request is authenticated with account username and password fields; the API is request/response REST returning JSON, and API access is included only on the Enterprise plan.
 
-For **Enterprise-plan** subscribers, DecoNetwork exposes a documented public JSON API over HTTPS to search and update orders, manage products, manage inventory, and manage purchase orders - so shops can integrate DecoNetwork with external carts, ERP/CRM systems, and custom production automation. The API is request/response REST: requests are sent as query parameters or `application/x-www-form-urlencoded` (a couple of POST bodies are JSON), all responses are JSON carrying a `response_status` object, and each request is authenticated with account `username` and `password` fields.
+**Areas:** Custom Apparel · Web-to-Print · Print Shop Management · Order · Product · Inventory · Production Workflow · E-Commerce
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/deconetwork/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/deconetwork/refs/heads/main/apis.yml)
+## DecoNetwork on APIs.io
 
-## Access Model
+Everything profiled for DecoNetwork is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/deconetwork/](https://apis.io/providers/deconetwork/)** — or go straight to one of the APIs or properties below.
 
-- The API is **real and publicly documented** at [developer.deconetwork.com](https://www.deconetwork.com/developer-resources/), but **plan-gated**: API access is included **only on the Enterprise plan** (published at USD 399/month plus a one-time license fee). Standard and Premium plans do not include API access.
-- Because each merchant runs on their own DecoNetwork site, the developer reference documents the host as `www.deconetwork.com`; callers substitute their own site domain.
-- The endpoints captured here are transcribed directly from DecoNetwork's published developer reference - none are fabricated. DecoNetwork also references an Inventory Events Management API whose exact endpoint paths were not resolvable at capture time, so it was deliberately omitted rather than modeled.
+### APIs (4)
 
-## Tags
+- [DecoNetwork Inventory API](https://apis.io/apis/deconetwork/deconetwork-inventory-api/) — The Inventory API from DecoNetwork — 2 operation(s) for inventory.
+- [DecoNetwork Orders API](https://apis.io/apis/deconetwork/deconetwork-orders-api/) — The Orders API from DecoNetwork — 2 operation(s) for orders.
+- [DecoNetwork Products API](https://apis.io/apis/deconetwork/deconetwork-products-api/) — The Products API from DecoNetwork — 2 operation(s) for products.
+- [DecoNetwork Purchase Orders API](https://apis.io/apis/deconetwork/deconetwork-purchase-orders-api/) — The Purchase Orders API from DecoNetwork — 2 operation(s) for purchase orders.
 
-- Custom Apparel
-- Web to Print
-- Print Shop Management
-- Orders
-- Products
-- Inventory
-- Production Workflow
-- E-commerce
+### Published properties
 
-## Timestamps
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- **Created:** 2026-07-11
-- **Modified:** 2026-07-11
+#### Agentic access (1)
 
-## APIs
+Which operations an agent can call, which act, and which need a human in the loop.
 
-### DecoNetwork Order Management API
+- [Deconetwork Agentic Access](https://apis.io/agentic-access/deconetwork/deconetwork-agentic-access/)
 
-Search, analyze, and update orders in a DecoNetwork site. Find orders with multi-condition filtering, sorting, and pagination (up to 100 results per request), optionally including workflow, purchase order, shipment, and production file data, and batch-update order or line-item status to Produced or Shipped.
+#### Collections (4)
 
-- **API Reference:** [Order Management API](https://developer.deconetwork.com/documents/api/json/order_management/api.html)
-- **Base URL:** `https://www.deconetwork.com/api/json/manage_orders`
-- `GET /api/json/manage_orders/find`
-- `POST /api/json/manage_orders/update_order_status`
+Postman and Open Collection request collections.
 
-### DecoNetwork Product Management API
+- [DecoNetwork JSON Inventory API](https://apis.io/collections/deconetwork/open-deconetwork-inventory-api/)
+- [DecoNetwork JSON Inventory Orders API](https://apis.io/collections/deconetwork/open-deconetwork-orders-api/)
+- [DecoNetwork JSON Inventory Products API](https://apis.io/collections/deconetwork/open-deconetwork-products-api/)
+- [DecoNetwork JSON Inventory Purchase Orders API](https://apis.io/collections/deconetwork/open-deconetwork-purchase-orders-api/)
 
-Build apps and integrations for managing DecoNetwork products. Search products with multiple conditions joined by logical AND (up to 100 results per request, offset pagination, ISO-8601 UTC date filtering) and retrieve one or more products by ID.
+#### Security (2)
 
-- **API Reference:** [Product Management API](https://developer.deconetwork.com/documents/api/json/product_management/api.html)
-- **Base URL:** `https://www.deconetwork.com/api/json/manage_products`
-- `POST /api/json/manage_products/find`
-- `GET /api/json/manage_products/get`
+Authentication, trust centre, and vulnerability disclosure.
 
-### DecoNetwork Inventory Management API
+- [Deconetwork Authentication](https://apis.io/security/deconetwork/deconetwork-authentication/)
+- [Deconetwork Domain Security](https://apis.io/security/deconetwork/deconetwork-domain-security/)
 
-Manage DecoNetwork inventory across catalog and custom products. Search SKU-based inventory with search conditions and pagination, and update inventory levels and related settings for SKUs.
+#### Plans and pricing (1)
 
-- **API Reference:** [Inventory Management API](https://developer.deconetwork.com/documents/api/json/inventory_management/api.html)
-- **Base URL:** `https://www.deconetwork.com/api/json/manage_inventory`
-- `GET /api/json/manage_inventory/find`
-- `POST /api/json/manage_inventory/update`
+Published plans, tiers and prices.
 
-### DecoNetwork Purchase Order Management API
+- [Deconetwork Plans Pricing](https://apis.io/plans/deconetwork/deconetwork-plans-pricing/)
 
-Retrieve purchase orders by search parameters (up to 100 rows per request) and record stock receipt against purchase orders and customer orders.
+#### Rate limits (1)
 
-- **API Reference:** [Purchase Order Management API](https://developer.deconetwork.com/documents/api/json/purchase_order_management/api.html)
-- **Base URL:** `https://www.deconetwork.com/api/json/manage_purchase_orders`
-- `GET /api/json/manage_purchase_orders/find`
-- `POST /api/json/manage_purchase_orders/receive_stock`
+Published request limits.
 
-## Common Properties
+- [Deconetwork Rate Limits](https://apis.io/rate-limits/deconetwork/deconetwork-rate-limits/)
 
-- [LinkedIn](https://www.linkedin.com/company/deconetwork)
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Deconetwork Finops](https://apis.io/finops/deconetwork/deconetwork-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.deconetwork.com)
 - [Documentation](https://www.deconetwork.com/developer-resources/)
-- [Sign Up / Pricing](https://www.deconetwork.com/pricing/)
-- [Plans](plans/deconetwork-plans-pricing.yml)
-- [Rate Limits](rate-limits/deconetwork-rate-limits.yml)
-- [Fin Ops](finops/deconetwork-finops.yml)
+- [Sign up](https://www.deconetwork.com/pricing/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 27.9** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 45.9 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 28.6 |
+| Access clarity | 21.1 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/deconetwork/](https://apis.io/providers/deconetwork/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for DecoNetwork: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/deconetwork/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
